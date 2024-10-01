@@ -1,0 +1,137 @@
+\noindent
+\emph{Lecture 09 \hfill 24 Sep 24, Tue}
+\section{Semidirect Product}
+
+\begin{proposition}[Number of Representations]\label{prop:number-of-representations}
+	Let $H$ and $K$ be subgroups of a group $G.$ The number of distinct ways of
+	writing any given element in $HK$ in the form $hk,$ where $h$ is in $H$ and $k$ 
+	is in $K,$ is $ \lvert H \cap K. \rvert.$
+\end{proposition}
+
+Direct Product
+Suppose $H$ and $K$ are groups embedded in $H \times K$ in the standard way
+$$ H \to H \times  K \qquad h \mapsto (h,1) $$
+and 
+$$ K \to H \times  K \qquad k \mapsto (1,k) .$$
+$1$ in the first, respectively second, coordinate represents the identity in $H,$
+respectively $K.$
+Then the following properties hold
+\begin{enumerate}
+	\item $H \times  1$ and $1 \times  K$ generate $ H \times  K.$
+		For $(h, k )$ in $ H \cap K,$ we have $(h,k) = (h, 1) (1, k).$
+	\item $ ( H \times 1) \cap (1 \times  K) = \{ ( 1, 1 ) \}.$
+	\item Commutativty:
+		$$(h,1) ( 1,k) = (1,k) (h,1).$$
+\end{enumerate}
+
+\begin{theorem}[Direct Product Recognition]
+	Let $G$ be a group with subgroups $H$ and $K,$ where
+	\begin{enumerate}
+		\item $G = H K.$
+		\item $H \cap K = \{ 1 \}.$
+		\item $H$ lies in the centre of $K,$ or, equivalently,
+			$K$ lies in the centre of $H.$
+	\end{enumerate}
+	Then the map $ H \times K \to G$ defined by $(h, k) \mapsto hk$
+	is an isomorphism.
+\end{theorem}
+
+\begin{example}
+	Let $I$ be an $m$\nobreakdash-subset of $\{ 1, 2, \dotsc, m \}$ and
+	let $G$ be the setwise stabiliser of $I$ in $S_n,$
+	$$ G = \left\{ \sigma \in S_n \; \mid\vert \; \sigma(I) = I \right\} .$$
+	Write $J = \{ 1, 2, \dotsc, n  \} \setminus I.$ G is also the setwise 
+	stabiliser of $J.$ Suppose 
+	$$ H = \{ \sigma \in G \; \vert \; \sigma(i) = i, \quad \forall i \in I \} $$
+	and
+	$$ K = \{ \sigma \in G \; \vert \; \sigma(i) = i , \quad \forall i \in J \} .$$
+	be the pointwise stabiliser of $H.$ We know that $H \triangleleft G$ and 
+	$K \triangleleft G.$ Moreover, $H \cap K = \{ 1_G \}.$ Then $HK \cong H \times  K.$
+	Let $h \in H$ and $k \in K.$ We want to prove that $hk = kh.$
+	We have $ h \in Sym( \{ 1, 2, \dotsc, n \} \setminus I ) = Sym(J)$
+	and $k \in Sym( \{ 1, 2, \dotsc, n \} \setminus J) = Sym(I).$
+	For each $\sigma$ in $G$ stabilising $I$ and $J,$ we can write
+	$\sigma = \sigma_I \sigma_J,$ where $\sigma_I \in Sym(J), \sigma_J \in Sym(I).$
+\end{example}
+
+
+\begin{example}
+	Let $G=  S_n$ and $n \geq 3.$ Let $H =  A_n$ and $ K = \langle ( 1 \; 2 ) \rangle .$
+	We have $H \triangleleft G, K \leq G$ and $ H \cap K = \{ 1_G \}.$ However 
+	as we know that $H$ is not normal in $G,$ we realise that $G$ is not the direct
+	product of $H$ and $K.$
+\end{example}
+
+Semidirect product
+Let $H$ and $K$ be subgroups of $G.$ Suppose $H \triangleleft G,$ then $HK \leq G.$
+For $hk$ and $h'k'$ in $hk,$ we have
+$$ (hk)(h'k') = hkh' k^{-1} k k' = h (k h' k^{-1}) kk'$$
+which is in $HK$ because $k h k^{-1}$ is in $H.$
+Also, $(hk)^{-1} = k^{-1} h^{-1} = k^{-1} h^{-1} k k^{-1} .$
+$K$ acts on $H$ via conjugaction. Since $ H \triangleleft G,$ this conjugation
+is an automorphism of $K$ on $H.$
+
+Consider two groups $H$ and $K$ not necessarily related. Suppose there is a group 
+homomorphism $\; \phi \colon K \to \operatorname{Aut}(H) \;$ is an action of $K$ on $H$ via $ \phi.$
+$ \phi_k \mapsto \phi_k \in \operatorname{Aut}(H) .$
+Since $ \phi$ is a group homomorphism, $ \phi_{k_1} \circ \phi_{k_2} = \phi_{k_1 k_2}$
+and $ \phi_{k}^{-1} = \phi_{k^{-1}}.$
+
+
+\begin{definition}[Semidirect Product]
+	For two groups $H$ nad $K$ and an action (a group homomorphism) $\phi \colon K \to 
+	\operatorname{Aut}(H) .$ The corresponding semidirect product $H semi_\phi K$
+	is defined as follows
+	\begin{enumerate}
+		\item as a set $H \rtimes_\phi k = \{ (hk) \; | \; h \in H, k \in K\}$
+		\item operation $(h,k) (h',k') = (h \phi_k(h') k k')$
+	\end{enumerate}
+\end{definition}
+
+If $H, K \leq G$ and $ \phi_k(h') = k h' k^{-1}.$ To show that $H \rtimes_\phi K$
+is a subgroup, we need to verifiy that
+the operation is closed, $(1_H, 1_K) $ is the identity,
+the inverse of $h,k$ is $(\phi_{k^{-1}} (h^{-1} ), k^{-1} )$
+and the operation is associative.
+
+\begin{example}
+	Let $H = \{ \pm 1 \}$ be a multiplicative group of two elements acting on
+	$\mathbb{Z},$ the additive group of all integers by automorphisms. Then 
+	there is a homomorphism $ \phi \colon \{ \pm 1 \} \mapsto \operatorname{Aut}
+	(\mathbb{Z}).$ We write $\phi(1) = \phi_1)$ where $ \phi_1(n) = n$ 
+	for all $n$ in $\mathbb{Z}$ and $ \phi(-1) = \phi_{-1}$ where
+	$ \phi_{-1} (n) = -n$ for all $n$ in $\mathbb{Z}.$
+	Then the semidirect product $ \mathbb{Z} \rtimes_{ \phi} \{ \pm 1 \}$ with
+	operatiions defined as
+	$$ (a, \epsilon) (a', \epsilon')=  (1 + \phi_\epsilon(a'), \epsilon \epsilon')
+	= (a + \epsilon a', \epsilon \epsilon')$$
+	where the operation in the first coordinate is addition in $\mathbb{Z}$ and in the
+	second coordinate is multiplication.
+\end{example}
+
+Moreover for any group homomorphism $ \Theta \colon \mathbb{Z} \to \operatorname{Z}$
+given by $\Theta_n \in \operatorname{Aut}(\mathbb{Z}),$ the semidirect product
+$ \mathbb{Z} \rtimes_\Theta \mathbb{Z}$ with operation
+$$ (n,m)(n',m') = (n + \Theta_m(n'), m + m')
+= (n + (-1)^m n', m + m') .$$
+
+
+The relation between $H K$ and $ \rtimes_\phi K.$
+
+\begin{theorem}[Constructing Semidirect Products]
+	Inside $H \rtimes_\phi K,$ we have
+	$$ H \equiv H \times  1 = \{ (h,1) \; | \; h \in H \} $$
+	by $ h \mapsto (h,1) $
+	and 
+	$$ K \equiv 1 \times  K = \{ (1, k) \; | \; k \in K \} $$
+	for each $ h \in H $ and $k \in K$
+	$$(h,k) = (h, 1) (1, k) = (1,k) (\phi^{-1} (h), 1) .$$
+	$H \rtimes_\phi K$ is generated by $ H \times 1$ and $1 \times K.$
+	$H \times 1$ is a normal subgroup of $H \rtimes_\phi K$ with
+	conjugation
+	$$(1,k)(h,1)(1,k)^{-1}= (\phi_k(h), 1) \in H \times  1.$$
+	In particular, for every $h$ in $H$ and $k$ in $K$,
+	$(h,1)$ and $(1,k)$ commutative iff $ \phi \colon K \to \operatorname{Aut}(H)$
+	is the trivial action where $\phi_k = \phi(k)$ is the identity mapping for each $k$
+	in $K.$
+\end{theorem}

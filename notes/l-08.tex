@@ -1,0 +1,113 @@
+\noindent
+\emph{Lecture 08 \hfill 19 Sep 24, Thu}
+
+\begin{theorem}[Sylow Counting Theorem]
+Let $G$ be a finite group. Denote the size of the set of all Sylow~$p$\nobreakdash-groups
+in $G$ by $n_p(G).$ In other words, $n_p(G) =  \lvert Syl_p(G) \rvert.$ Then $ n_p(G) \equiv
+1 (\mod p^e) $ if $ p^e \leq \left[ S \, : \, S \cap T \right] $ for all distinct $ S,T
+\in Syl_p(G). $
+\end{theorem}
+
+\begin{proof}
+	Let $P \in Syl_p(G) .$ Let $P$ act on $Syl_p(G)$ act on $Syl_p(G)$ via 
+	conjugation. Then $ \left\{ P \right\} $ is one orbit of the action.
+	Now it suffices to show all the other orbits have size divisible by $p^e.$
+	Suppose $S \in Syl_p(G) $ with $S \not = P.$ The orbit $O_S$ of $S$ under this action
+	has size equal to $ \frac{ \lvert P \rvert}{ \lvert N_P(S) \rvert}  = \left[ P
+	\, : \, N_P(S) \right] .$
+
+	Since $N_P(S) $ is a subgroup of $N_G(S),$ we have $N_P(S) \leq S $ by the
+	Lemma \ref{lem:p-subgroup-of-normaliser}. Further, we also know that $ N_P(S) 
+	\leq P. $ So, we get $N_P(S) \leq S \cap P.$ WHY IS $ S \cap P \leq N_P(S) ? $
+
+\end{proof}
+
+\begin{theorem}[order $pq$ group not simple]
+	Let $ \lvert G \rvert = pq, $ where $p > q$ and $p, q$ are prime integers.
+	Then $G$ has a normal Sylow~$p$\nobreakdash-subgroup, Also, if $G$ is non abelian,
+	then $q \, | \, p-1 $ and $G$ has exactly $p$ Sylow~$q$\nobreakdash-subgroups.	
+\end{theorem}
+
+\begin{proof}
+	By \cref{cor:number-of-sylow-p-groups}, we know that $n_p(G) \, | \, \left[ G
+	\, : \, P\right] ,$ where $P \in Sylow_p(G).$ Moreover, $n_p(G)$ is either $1$
+	or $q.$ If $n_p(g) = 1,$ then by the \cref{cor:normal-sylow-p-subgroups}, we
+	know that this means $p$ is normal in $G.$ If $n_p(G) = q,$ then by Sylow Counting
+	Theorem, \cref{thm:sylow-counting}, we know that $p \, | \, q-1$ but this cannot
+	happed because $ p > q.$ By \cref{thm:sylow-counting}, we also know that
+	$n_p(G) = 1$ or $p.$ Since $ G / P$ is a group of order $q,$ $G / P$ is abelian and
+	consequently $G ' \subseteq P.$ This means that $ G' \subseteq P \cap Q = \left\{ 
+	1_G \right\} $ which happens exactly when $ G$ is abelian.
+\end{proof}
+
+\begin{theorem}[order $p^2 q$ group is not simple]
+\end{theorem}
+
+\begin{proof}
+	By the Corollary on number of Sylow~$p$\nobreakdash-subgroups, 
+	\cref{cor:number-of-sylow-p-subgroups} we know that the number of
+	Sylow$q$\nobreakdash-subgroups is $n_q(G) \in \left\{ 1, p, p^2 \right\} $ and
+	$n_p(G) \in \left\{ 1, q \right\} .$ By Sylow counting Theorem,
+	$n_p(G) \equiv 1 (\mod p ), n_q(G) \equiv 1 (\mod q ).$ If $n_q(G) = 1,$
+	then we know that there is exactly one Sylow~$q$\nobreakdash-subgroup
+	and it is normal.
+	If $n_q(g) = p,$ then $q | p-1$ and $ q < p.$ So, $q \not \equiv 1 
+	(\mod p).$ Therefore $n_p(G) = 1$ and the unique Sylow~$p$\nobreakdash-subgroup
+	in $G$ is normal. If $n_q(G) = p^2,$ then there are $p^2$ many distinct
+	subgroups of order $q.$ If $Q_1$ and $Q_2$ in $Syl_q(G)$ are distinct Sylow~
+	$q$\nobreakdash-subgroups, then $Q_1 \cap Q_2 = \left\{ 1_G \right\} .$
+	The $p^2$ elements of order $q$ cover $p^2(q-1)$ elements of order $q.$
+	Then, consider $X = G \setminus \bigcup_{Q \in Syl_q(G)} Q \setminus \left\{ 
+	1_G\right\} .$ Then $X$ contains all elements in $G$ whose order is not equal to 
+	$q.$ $ \lvert X \rvert = p^2 q - p^2(q-1) = p^2.$ Then,
+	$X$ must be the Sylow~$p$\nobreakdash-subgroup. This shows that
+	$n_p(G) = 1.$
+\end{proof}
+
+\begin{remark}[Burnside]
+	If $ \lvert G \rvert = p^a q^b$ where $p,q$ are distinct primes, $G$ cannot
+	be simple unless it has order prime power.
+\end{remark}
+
+
+\begin{lemma}[Sylow $p$\nobreakdash-subgroup of simple groups]
+	Suppose $ \lvert G \rvert = p^\alpha m$ where $a >0, m>1$ and $
+	p \not | m.$ If $ G$ is simple, then $n = n_p(G) $ satisfies $ \lvert G \rvert
+	\, | \, n!. $
+\end{lemma}
+
+\begin{proof}
+	Set $P \in Syl_p(G)$. By Corollary on Number of Sylow$p$\nobreakdash-subgroups,
+	\cref{cor:number-of-sylow-p-subgroups},
+	$n = n_p(G) = \left[ G \, : \, N_G(P) \right] .$ Since $G$ is simple, 
+	$N_G(P) < G$ hence $ n >1.$ By the Theorem on search for normal subgroups,
+	we know that there exists $N \leq N_G(P) $ such that $ N \triangleright G$
+	and $ \left[ G \, : \, N \right] | n!.$ Since $G$ is simple and $N \leq N_G(P) 
+	< G,$ then $n = \left\{ 1_G \right\} .$ Consequently, 
+\end{proof}
+
+\begin{example}
+	If $ \lvert G \rvert = 2376 = 2^3 \times 3^3 \times 11,$ then $G$ is not simple.
+\end{example}
+\begin{proof}
+	Assume $G$ is simple. We prove this theorem by contradiction.
+	The number of Sylow~$11$\nobreakdash-subgroups, $n_{11}(G) \equiv 1 (\mod 11).$
+	we have $n_{11}(G)$ is $1, 12 $ but not $23, 34, 45, 56, 67, 78, 89, 100 or 112.$
+	This is because $n_{11}(G) $ also divides $ \left[ \lvert G \rvert \, :
+	\, \lvert S \rvert\right] = 2^3 \times 3^3 = 216.$
+	We want to find a subgroup $H \leq G$ such that $n = \left[ G \, : \, H \right] $
+	and $1 < n < 11.$ This would suffice because by Theorem on Search for Normal Subgroups, we know that there
+	must exist $ K \leq H $  such that $K \triangleleft G$ and 
+	$\left[ G \, : \, K \right] | n!.$ This would be a contradiction because 
+	$11 | \lvert G \rvert$ but $ 11 \not | n!$ for $n < 11.$
+	Let $S \in Syl_{11}(G) $ and $N = N_G(S).$ Since $n_{11}(G) = 12 = 
+	\left[ G \, : \, N \right] ,$ we have $ \lvert N \rvert = 2 \times 3^2 \times 11.$
+	Let $C = C_G(S).$ As the centraliser of a subgroup is normal in the normaliser of
+	it, we get that $N / C $ is isomorphic to a subgroup of $\mathcal{A}(S).$
+	Since $A \equiv Z _{11},$ then $\Aut(S) \equiv Z _{10}.$ So $N/C$ is 
+	isomorphic to a subgroup of $Z _{10} .$ This means $ \left[ N \, : \, C \right] 
+	| 10 $ and $\operatorname{GCD}( \left[ N \, : \, C \right] , 3) = 1. $
+	and $3^2 | \lvert C \rvert.$
+	Let $P \in Syl_3(C).$ Then $ \lvert P \rvert = 3^2.$ Since $G$ is simple, then
+	$H = N_G(p) < G.$
+\end{proof}

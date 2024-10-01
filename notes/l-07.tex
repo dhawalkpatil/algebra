@@ -1,0 +1,208 @@
+\section{Sylow's Theorems}
+The Lagrange's Theorem states that if $G$ is a finite group and $H$ is a subgroup of $G,$
+then $ \lvert H \rvert,$ the order of $H$ divides $ \lvert G \rvert,$ the order of $G.$
+We explore the following question: If $G$ is a finite group, and $k$ is an integer
+which divides $ \lvert G \rvert ,$ does there exist a subgroup $H$ of order $k?$
+This is, in a way, the converse of Lagrange's Theorem.
+
+By the Theorem on structure of finite abelian groups, we know that this is indeed true
+for finite abelian groups.
+However, it fails for non abelian groups. For example, $ \lvert A_{4} \rvert = 12,$
+has no subgroup of order 6.
+
+\begin{lemma}[Binomial Coefficients modula a prime]
+	Let $ n = p^{\alpha} m$ where $p$ is a prime.
+	Then $ \binom{n}{p^{\alpha}} \equiv m (\mod p).$
+\end{lemma}
+
+\begin{proof}
+	From Fermate-Euler's Theorem, we know that for any positive integer
+	$x,$
+	$ (x+1)^{p ^\alpha} \equiv x^{p^\alpha} + 1 (\mod p) $	
+	Applying this to $x^m $ instead of $x,$ we get
+
+	$ (x+1)^{p ^\alpha m} \equiv x^{p^\alpha m} + 1 (\mod p) .$
+
+\end{proof}
+
+\begin{theorem}[Sylow's Existence Theorem]
+Let $G$ be a finite group of order $p^{\alpha}m,$ where $p$ is prime and $p \not |m.$
+Then $G$ has a subgroup $H$of order $p^{\alpha}.$
+\end{theorem}
+
+\begin{proof}
+	Let $\Omega$ be the collection of all subsets $X$ of $G$ of size $p^\alpha.$
+	Then,
+	$$ \lvert \Omega \rvert = \binom{ \lvert G \rvert }{p^\alpha}
+	= \binom{p^\alpha m} {p^\alpha }
+	\equiv m \not \equiv 0 ( \mod p).$$
+	Let $G$ act on $ \Omega $ via right regular action.
+	Since $p \not  | \, \lvert \Omega \rvert ,$ there exists an orbit 
+	$O$ such that $p \not |\, \lvert O \rvert,$
+	for the orbits of the action partition $ \Omega. $
+
+	Let $X_o \in O$ and $H $ be $ G _{X_o} \leq G,$ the stabiliser of $X_o.$
+	By the orbit stabiliser theorem, the size of this orbit is
+	$ \lvert O \rvert =  \frac{ \lvert G  \rvert }{ \lvert H \rvert },$
+	the number of cosets of $H.$
+	Since $p \not | \, \lvert O \rvert$
+	but $p^\alpha \, | \, \lvert G \rvert = \lvert H \rvert \lvert O \rvert,$
+	we must have $p^{\alpha} | \, \lvert H \rvert.$
+	For each $ x \in X_o$ and $ h \in H,$ we have $ xh \in X_o.$
+	So, we have $x H \subset X_o.$
+	Then,
+	$ \lvert H \rvert = \lvert x H \rvert \leq \lvert X_o \rvert = p^\alpha.$
+	As $H \leq G,$ we get $ \lvert H \rvert = p^\alpha.$
+
+\end{proof}
+
+\begin{definition}[Sylow $p-$subgroup]
+	Let $G$ be a finite group and $p$ be a prime integer.
+	A Sylow $p$\nobreakdash-subgroup of $G$ is a subgroup
+	$P \leq G$ such that $ \lvert P \rvert = p^\alpha \, | \, \lvert G \rvert$
+	but $ \lvert p^{\alpha +1}  \rvert \, \not | \, \lvert G \rvert .$
+	The set of all Sylow $p$\nobreakdash-subgroups of $G$ is denoted 
+	by $Syl_p(G).$
+\end{definition}
+
+For each prime integer $p | \lvert G \rvert,$ $Syl_p(G) \not = \left\{ \phi \right\} .$
+For prime integers $p$ such that $p \not | \, \lvert G \rvert,$
+set $Syl_p(G) = \left\{ \left\{ 1_G \right\}  \right\}.$
+
+\begin{corollary}[Cauchy's Theorem]
+	Let $G$ be a finite group with $p | \lvert G \rvert$ where $p$
+	is some prime integer. Then, $G$ has an element of order $p.$
+\end{corollary}
+
+\begin{proof}
+	By Sylow's Existence theorem, there exists a Sylow $p$\nobreakdash- subgroup
+	$H$ of $G.$
+	Since $p | \lvert G  \rvert,$
+	$P$ is a nontrivial subgroup of $G.$
+	That means there exists $x \in P \setminus \left\{ 1_G \right\}$
+	having order $o(x) = p^e,$ where $1 \leq e.$
+	Set $y = x^{p^{e-1}}.$ Then, $o(y) = p.$	
+\end{proof}
+
+Each $P \in Syl_p(G)$ is a maximal subgroup of $G.$
+
+\begin{theorem}[Sylow Development]
+	Let $G$ be a finite group and $P \leq G$ be a $p$\nobreakdash-subgroup,
+	then there exists some $S \in Syl_p(G)$ with $P \leq S.$
+\end{theorem}
+
+\begin{theorem}[Sylow Conjugacy]
+Let $G$ be a finite group. The set $Syl_p(G)$ is a single conjugacy class of Sylow
+subgroups of $G.$
+\end{theorem}
+
+\begin{theorem}[Conjugacy of Sylow $p$\nobreakdash-subgroups]
+	Let $G$ be a finite group and suppose $P \leq G$
+	is a $p$\nobreakdash-subgroup and $S \in Syl_p(G).$
+	Then $P \leq S^x = x^{-1}S x $ for some $x$ in $G.$
+\end{theorem}
+
+\begin{proof}
+	Let $ \Omega  =  \left\{ S x \; | \; x \in G  \right\}$
+	be the set of right cosets of $X$ in $G.$
+	Let $P$ act on $ \Omega $ via right regular  action.
+	We proceed to calculate the size of $ \Omega.$
+	The size of $ \Omega $ is the sum of sizes of all orbits in it. 
+	It is also equal to $ \lvert \Omega \rvert = \frac{ \lvert P \rvert} { \lvert G_S \rvert}.$
+	Consequently, $p \not | \, \lvert \Omega \rvert.$
+
+	We claim that there is an orbit of size $1.$
+	Indeed, if the size of all orbits is divisible by $p,$ then $ \lvert G \rvert $
+	is divisible by $p $ because the orbits of the action of $P$
+	on $ \Omega$ partition $G.$
+	In other words, there exists some $x \in G$ such that $ S{xy} = S {x} \cdot y = S_x$
+	for each $y \in P.$
+	Then $y \in x^{-1} S x = S^x.$ Thus $ P\leq S^x.$
+\end{proof}
+
+The collection of all Sylow $p$\nobreakdash-subgroups, $Syl_p(G),$ is quite interesting.
+
+\begin{corollary}[Number of Sylow $p$\nobreakdash-subgroups] \label{cor:number-of-sylow-p-groups}
+	Let $G$ be a finite group and let $P \in Syl_p(G).$ Then, $ \lvert Syl_p(G) \rvert 
+	= \left[ G \, : \, N_G(P) \right] ,$
+	where $N_G(P) $ is the normaliser of $P$ in $G.$
+	In particular, $ \lvert Syl_p(G) \rvert $ divides $ \left[ G \, : \, P \right] 
+	= \frac{ \lvert G \rvert } { \lvert P \rvert }.$
+\end{corollary}
+
+\begin{proof}
+	Let $P$ act on $Syl_p(G)$ by conjugation.
+	The number of conjugate subgroups of $P$ is exactly the number of 
+	elements in $Syl_p(G)$
+	because each Sylow $p$\nobreakdash-subgroup of $G$ is conjugate to $P.$
+	Let $ \Omega$ be the set of all conjugates of $P$ in $G$ and let 
+	$G$ act on $ \Omega$ by conjugation.
+	The size of $ \Omega ,$ which is the number of conjugates of $P$ in $G$ 
+	is $ \left[ G \, : \, N_G(H) \right] $ because $N_G(P) $ is the
+	stabiliser of $P$ in $G.$
+\end{proof}
+
+\begin{corollary}[Normal Sylow $p$\nobreakdash-subgroups]
+	Let $ S$ be a Sylow $p$\nobreakdash-subgroup of $G.$
+	The following statements are equivalent
+	\begin{enumerate}
+		\item $S$ is normal in $G.$
+		\item S is the unique Sylow $p$\nobreakdash-subgroup of $G.$
+		\item Every $p$\nobreakdash-subgroup of $G$ is contained in $S.$
+		\item $S$ is a characteristic subgroup of $G.$
+	\end{enumerate}
+\end{corollary}
+
+\begin{definition}[Characteristic subgroups]
+	If $G$ is a group, then a subgroup $H$ of $G$ is said to be characteristic
+	in $G$ if for any $ \sigma \in \Aut(G),$ $ \sigma(S) = S.$
+\end{definition}
+
+\begin{proof}
+	$ (1) \implies (2) $
+	As any two Sylow $p$\nobreakdash-subgroups of $G$ are conjugate to each other,
+	we conclude that there is only one Sylow $p$\nobreakdash-subgroup of $G$
+	because it has only one conjugate.
+	
+	$(2) \implies (3) $
+	As each $p$\nobreakdash-subgroup is ocntained in some Sylow $p$\nobreakdash-subgroup,
+	we get that any given $p$\nobreakdash-subgroup $P$ is contained in $S.$
+	
+	$(3) \implies (4).$
+	For each $ \sigma \in \Aut(G),$
+	$ \sigma (S) $ is a $p$\nobreakdash-subgroup of $G.$
+	From (3), we get that $ \sigma(S) \leq S.$
+	Moreover, $ \sigma(S) = S.$ Then $S$ is characteristic in $G.$
+
+	$(4) \implies (1) $
+	This is true because conjugation is an inner automorphism.
+\end{proof}
+
+\begin{lemma}[$p$\nobreakdash-subgroups of normaliser] \label{lem:p-subgroup-of-normaliser}
+	Let $G$ be a finite group and let $S \in Syl_p(G).$
+	Suppose $P$ is a $p$\nobreakdash-subgroup of $N_G(S).$
+	Then $P \leq S.$
+\end{lemma}
+
+\begin{proof}
+	By the Sylow's Development Theorem, we know that $P \leq S^x $
+	for some $x \in G.$
+	Since $P \leq N_G(S),$ we know that $PS = SP.$
+	From previous knowledge, we know that this happens if and only if 
+	$SP$ is a subgroup of $G.$
+	So, we get that $S \leq SP \leq G.$
+	For any two groups $H, K $ of a group $G,$ we have
+	$ \lvert H K \rvert = \frac{ \lvert H \rvert \lvert K \rvert}{ \lvert H \cap K \rvert}.$
+	As $SP$ is also a $p$\nobreakdash-subgroup and
+	$S$ is a maximal $p$\nobreakdash-subgroup in $G,$ we get that 
+	$SP = S$ which happens if and only if $S = P.$
+\end{proof}
+
+\begin{proof}[Alternative Proof]
+	Since $S \in Syl_p(G)$ and $S \leq N_G(S) \leq G,$ we must have
+	$S$ is a Sylow $p$\nobreakdash-subgroup of $N_G(S).$	
+	Moreover, $P$ is a $p$\nobreakdash-subgroup of $N_G(S)$
+	and $S \triangleleft N_G(S)$ so applying the corollary about normal Sylow
+	$p$\nobreakdash-subgroups, we get that $P \leq S.$
+\end{proof}
+
