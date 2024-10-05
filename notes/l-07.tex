@@ -105,20 +105,23 @@ subgroups of $G.$
 \begin{proof}
 	Let $ \Omega  =  \left\{ S x \; | \; x \in G  \right\}$
 	be the set of right cosets of $X$ in $G.$
+	as $S$ is in $Syl_p(G),$ $p$ does not divide $ \lvert \Omega
+	\rvert.$
 	Let $P$ act on $ \Omega $ via right regular  action.
-	We proceed to calculate the size of $ \Omega.$
 	The size of $ \Omega $ is the sum of sizes of all orbits in it. 
-	It is also equal to $ \lvert \Omega \rvert = \frac{ \lvert P \rvert} { \lvert G_S \rvert}.$
-	Consequently, $p \not | \, \lvert \Omega \rvert.$
-
-	We claim that there is an orbit of size $1.$
-	Indeed, if the size of all orbits is divisible by $p,$ then $ \lvert G \rvert $
-	is divisible by $p $ because the orbits of the action of $P$
-	on $ \Omega$ partition $G.$
-	In other words, there exists some $x \in G$ such that $ S{xy} = S {x} \cdot y = S_x$
-	for each $y \in P.$
-	Then $y \in x^{-1} S x = S^x.$ Thus $ P\leq S^x.$
-\end{proof}
+	Hence there exists an orbit $O$ whose size is not divisible by $p.$
+	Let $H$ be the stabiliser of $Sg,$ some element in the
+	orbit $O.$
+	As $P$ is a $p$\nobreakdash-group, $ \lvert P \rvert$
+	is $p^\alpha$ for some positive integer $\alpha.$
+	Also, $H \leq P,$ so $ \lvert H \rvert = p^e$ for some positive
+	integer $e \leq \alpha.$
+	As $p \not | \, \lvert O \rvert, = 
+	\frac{ \lvert P \rvert}{ \lvert H \rvert},$ we get that
+	$ \lvert H \rvert = p^ \alpha,$ whence $H = P.$ This means
+	for any element $x$ in $P,$ we get $Sg \cdot x = Sgx = Sg,$
+	or $g x g^{-1}$ is in $S.$ This shows that $P \leq g^{-1} S g.$
+	\end{proof}
 
 The collection of all Sylow $p$\nobreakdash-subgroups, $Syl_p(G),$ is quite interesting.
 
@@ -185,8 +188,8 @@ The collection of all Sylow $p$\nobreakdash-subgroups, $Syl_p(G),$ is quite inte
 \end{lemma}
 
 \begin{proof}
-	By the Sylow's Development Theorem, we know that $P \leq S^x $
-	for some $x \in G.$
+	By the Sylow's Development Theorem, we know that $P \leq S^x 
+	= x^{-1}G x$ for some $x \in G.$
 	Since $P \leq N_G(S),$ we know that $PS = SP.$
 	From previous knowledge, we know that this happens if and only if 
 	$SP$ is a subgroup of $G.$

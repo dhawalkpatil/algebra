@@ -1,0 +1,180 @@
+
+\noindent
+\emph{Lecture - 11 \hfill 01 Oct 24, Tue}
+
+Today we will discuss the Schur Zassenhaus Theorem.
+Suppose $N$ is a normal subgroup of $G.$ Can we construct $G$
+from $N$ and $G / N?$
+Say $G \equiv \mathbb{Z}_{p^2},$ and $N \triangleleft G,$ with
+$N \equiv \mathbb{Z}_{p}.$ Then $G / n \equiv \mathbb{Z}_{p},$
+and constructing $G$ from $N$ and $G/N$ is not straightforward.
+\begin{definition}[Complement]
+	Let $G$ be a group and $N \triangleleft G.$ We say that
+	a subgroup $H$ of $G$ is complement of $N$ if $G = N \rtimes H.$
+\end{definition}
+
+Not every normal subgroup has a complement. For instance,
+$G = S_4$ has a normal subroup $H \equiv D_4$ which is the unique
+Sylow~$2$\nobreakdash-subgroup. The unique REALLY???
+Sylow~$3$\nobreakdash-subgroup $C_3$ is not complement to $D_4.$
+
+
+\begin{definition}[Hall Subgroup]
+	A subgroup $H$ of a finite group $G$ is a Hall subgroup if 
+	$( \lvert H \rvert, [ G \, : \, H ] ) = 1.$
+\end{definition}
+For example, every Sylow~$p$\nobreakdash-subgroup is a Hall subgroup.
+
+\begin{theorem}[Schur Zassenhaus]
+	Any normal Hall subgroup $H$ of a finite group $G$ has a 
+	complement and all the complements are conjugate in $G.$
+\end{theorem}
+\begin{example}
+	Let $p$ be an odd prime and $G$ be a group of order $2p.$
+	There exists a subgroup $H$ of $G$ of order $p.$ $H$ is
+	normal in $G$ and also $( \lvert H \rvert, [G \, : \, H])
+	= 1$ so $H$ is a Hall subgroup of $G.$ Fill in the details.
+	why are all elements of order 2 conjugate to each other?
+\end{example}
+
+\begin{lemma}[Frattini argument]
+	Let $G$ be a finite group, $N \triangleleft G,$ and $P$
+	be a Sylow~$p$\nobreakdash-subgroup of $N.$ Then,
+	$G = N_G(P) N.$
+\end{lemma}
+\begin{proof}
+	Let $g$ be in $G.$ Then $ g^{-1} P g \leq g^{-1} N g = N.$
+	So, the action of $G$ on $Syl_p(N)$ via conjugation is well-%
+	defined. This is because $P$ is conjugate to each Sylow~$p$%
+	\nobreakdash-subgroup of $N$ by Sylow Conjugacy Theorem.
+	For each $g$ in $G,$ $g^{-1}Pg$ is in $Syl_p(N),$ so there
+	exists $n$ in $N$ such that $n^{-1} g^{-1} P g n = P.$ Then $gn$ 
+	is in $N_G(P).$ So $g \in N_G(P) n^{-1} \subseteq N_G(P) N.$
+	Thus $G \subseteq N_G(P) N.$ This proves the required equality.
+\end{proof}
+
+
+\begin{proof}[Proof of Schur Zassenhaus Theorem]
+	Let $N$ be a normal Hall subgroup of a finite group $G$ with
+	$ n = [G \, : \, N].$ This means $\GCD( \lvert N \rvert, n) = 1.$
+	For this GCD to be well defined, $G$ has to be finite.
+	
+	\emph{Step 1 }\quad It suffices to show that $G$ has a 
+	subgroup $K$ of order $n.$
+
+	Note that $NK = 
+	\frac{ \lvert N \rvert \lvert K \rvert}{ \lvert N \cap K \rvert}
+	 = \lvert N \rvert \lvert K \rvert = \lvert G \rvert$
+	because $N \cap K = \{ 1_G \}$ because the order of this group
+	divides the order of $N$ as well as of $K.$
+	By recognition of semidirect product theorem, we know that
+	$G = N \rtimes K.$
+
+	We proceed to prove by induction. The induction hypothesis
+	is that for each groupwith order less than $ \lvert G \rvert,$
+	which has a normal Hall subgroup $H'$ also has a subgroup
+	with order equal to the index of $H'.$
+
+	\emph{Step 2} \quad Let $P$ be a Sylow subgroup of $N.$
+	We can assume that $P$ is normal in $G,$ for otherwise, 
+	we can find a subgroup in $G$ of order $n.$
+
+	By Frattini argument,
+	$ G = N_G(P) N.$ Observe that $ N_N(P) = N_G(P) \cap N $ 
+	is a normal subgroup of $N_G(P) $ because $N$
+	is normal in $G.$ So we can apply the Second Isomorphism Theorem
+	to conclude that
+	$$ \frac{G}{N} \cong \frac{N_G(P) N}{N} \cong
+	\frac{N_G(P)}{N_G(P) \cap N} = \frac{N_G(P)}{ N_N(P)} $$
+	Thus $ n = [G \, : \, N] = [ N_G(P) \, : \, N_N(P) ].$ If
+	$N_G(P) < G,$ that is $ P \not \triangleleft G,$ then we shall
+	apply the induction hypothesis to $N_G(P).$ We know that
+	$N_N(P) \triangleleft N_G(P) $ and it is also a Hall subgroup
+	of $G$ because $ \lvert N_N(P) \rvert \, | \, \lvert N \rvert$ by
+	Lagrange's Theorem. We know
+	$ [ N_G(P) \, : \, N_N(P) ] = n$ and $ GCD( \lvert N \rvert,
+	n ) = 1$ so $\GCD( \lvert N_N(P) \rvert, n) = 1.$
+	Thus, applying the induction hypothesis, we get that
+	$N_G(P)$ contains a subgroup of order $[ N_G(P) \, : \, 
+	N_N(P)] = n.$ Thus $G$ contains a subgroup of order $n.$
+
+	\emph{Step 3} \quad Proceeding with the case that $P$ is normal in $G,$ we now show that we can assume that $N = P.$
+
+	If $ P < N,$ then 
+	$N /P \triangleleft G / P$ and $ [ G/P \, : \, N /P] =
+	[ G \, : \, N ] =n,$
+	by correspondence theorem and $ \GCD( \lvert N/P \rvert, n) = 1$ because 
+	$\GCD( \lvert N \rvert, n) = 1.$ So we now get that
+	$N/ P$ is a normal Hall subgroup of $G/P.$ By Correspondence
+	Theorem, this group must be of the form $L/P$ where $L$ is some
+	subgroup of $G$ containing $P.$ If we can show that $ L < G,$
+	then we can find a subgroup of $G$ of order $n$ by 
+	applyign the induction hypothesis to $L.$
+	To show this, consider 
+	$L \cap N.$ Its order divides $ \lvert N \rvert$ as well
+	as $ \lvert L \rvert = n \lvert P \rvert.$ As $\GCD(n, \lvert 
+	N \rvert) = 1,$ we get that $ \lvert L \cap N \rvert $ divides
+	$ \lvert P \rvert.$ So $ \lvert L \cap N \rvert \leq \lvert P \rvert.$
+	On the other hand, we have $ \lvert P \rvert \leq
+	\lvert L \cap N \rvert$ because $P$ is contained in $L$ as well
+	as $N.$ So, $P = L \cap N.$
+
+	If $P <N,$ then
+	there exists $x$ in $ N \setminus P.$ So $x$ is in $N$ but not
+	in $L.$ This shows that $L < G.$
+
+	An alternative way to view this is to realise that if $P$
+	is not $N,$ then there is an element $xP$ in $N/P$ which is not
+	$P.$ As $o(xP)$ would divide $ \lvert N /P \rvert$ and 
+	$\GCD( \lvert N/P \rvert, \lvert L/P \rvert),$ we get that
+	$xP$ is not in $L/P.$ So, we get that $L < G.$
+	
+	For the next step, we assume that $N=P$ in addition to the 
+	assumption that $N \triangleleft G.$
+
+	\emph{Step 4} \quad We assume for this case that $N$ is not
+	abelian and prove that in this case there exists a subgroup of
+	order $n$ in $G.$
+
+	Let $N$ be non abelian and denote its center as $Z = Z(N).$
+	So, $ 1 \leq Z \triangleleft N.$ Since $Z$ is a characteristic
+	subgroup of $N$ and $N \triangleleft G,$ we have $Z \triangleleft G.$ Observing that $ N/Z \triangleleft G/Z,$ and 
+	$[G/Z \,:\, N / Z] = [G \,:\, N] = n,$ we apply the induction
+	hypothesis to $G/Z$ whose order is less than $ \lvert G \rvert$
+	because the centre of $N$ is nontrivial. So, $G/Z$ has
+	a subgroup $J/Z$ of order $n.$
+
+	We show that $J<G$ and then use the induction hypothesis to 
+	conclude that there is a subgroup of order $n$ contained in
+	$J$ and thus in $G.$ As $\GCD( \lvert J/Z \rvert, \lvert N
+	/Z \rvert ) = 1,$ we get that $ (J \cap N) / Z = 
+	J/Z \cap N/Z$ is the trivial subgroup of $G/Z.$ 
+	So, $J \cap N = Z.$ There exists $x$ in $N \setminus Z$
+	because $N$ is not abelian. We get that $x$ is in $N$ and 
+	thus in $G$ but not in $J$
+	because $x$ is not in $Z = J \cap N.$
+	
+	WHY IS THE CENTER NONTRIVIAL?
+\end{proof}
+
+\begin{corollary}
+	Fix a prime integer $p.$ For a finite group $G$ with order divisible by $p,$ the following statements are equivalent
+	\begin{enumerate}
+		\item $ \lvert \Aut(G) \rvert $ is not divisible by $p.$
+		\item $G \cong \mathbb{Z}_p \times H,$ where
+			$p$ does not divide $ \lvert H \rvert$ or
+			$ \lvert \Aut(H) \rvert.$
+	\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+	$(2 \implies 1)	$ For $G,$ as given, we have
+	$ \Aut(G) \cong \Aut(\mathbb{Z}_p) \times \Aut(H)
+	\cong \mathbb{Z}_p^\ast \times \Aut(H).$
+	As $p$ does not divide $ \lvert \mathbb{Z}_p^\ast \rvert = p-1,$
+	we see that $p$ does not divide $ \Aut(H).$
+
+	$ (1 \implies 2) $ Let $P \in Syl_p(G),$ we aim to show that $G = 
+	P \times  H.$
+\end{proof}
+
