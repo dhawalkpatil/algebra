@@ -1,0 +1,100 @@
+
+\noindent
+\emph{Lecture - 13\hfill 08 Oct 24, Tue}
+
+So far we studied some general properties about groups such as group actions, Sylow~$p$\nobreakdash-subgroups and the Schur\nobreakdash-Zassenhauss Theorem. We will now switch to some concrete groups, the general linear groups. These are the source of many combinatorial concepts.
+
+Let $\mathbb{F}$ be a field and $n$ be a positive integer. Denote
+the set fo all $n \times n$ matrices over $\mathbb{F}$ by $M_n(\mathbb{F}.$
+
+\begin{definition}[General Linear Group]
+	The egneral linear group $GL(n, \mathbb{F})$ consists of all
+	invertible matrices in $M_n(\mathbb{F})$ with matric multiplication as teh group operation.
+\end{definition}
+
+Our goal is to decompose $GL(n, \mathbb{F}).$ To do this we will study the action of this group on some combinatorial objects.
+
+\begin{remark}
+	Given an $n$\nobreakdash-dimensional space $V$ over $\mathbb{F}$ the general linear group $GL(V)$ is defined as the group of all invertible linear transformations of $V$ with composition of mapping as the group operation.
+\end{remark}
+
+Unless mentioned otherwise, $p,q$ denote positive prime integers and
+$G$ may be considered to be $GL(n,p).$
+
+From our knowledge of linear algebra, we know that $GL(n, \mathbb{F}) \cong GL(V).$
+
+If $\mathbb{F}$ is a finite field, then its order must be of the form $q^n$ where $q$ is some prime number and $n$ is some positive integer. In particular, if $n=1,$ then we shall write $GL(n, \mathbb{F})$ as $GL(n, q).$
+
+\begin{proposition}[General linear group as automorphism gruop]
+Let $E$ be an elementary abelian $p$\nobreakdash-group with $ \lvert E \rvert = p^n.$ Then $\Aut(E) \cong GL(n,p).$
+\end{proposition}
+An \emph{Elementary abelian $p$\nobreakdash-group} $E$ of order $p^n$ is isomorphic to $\Pi_{i=1}^{n} \mathbb{Z}_p = \mathbb{Z}_p \times \mathbb{Z} \times \cdots \times \mathbb{Z}_p.$
+\begin{proof}
+Let $\mathbb{F}$ be a field of order $p.$ Then, $E$ can be regarded as an $n$nobreakdash-dimensional vector space over $\mathbb{F}.$ Then every element in $\Aut(E)$ is an invertible linear transformation on $E.$
+\end{proof}
+
+\begin{proposition}[order of $GL(n, q)$]
+	The order of $G = GL(n, q)$ is
+	$$\Pi_{k=0}^{n-1} (q^n - q^k) = q^{ \frac{n(n-1)}{2}} \Pi_{k=1} n (q^k-1) .$$
+\end{proposition}
+\begin{proof}
+	We count the number of elements in $G.$ The first row can be any element of $\mathbb{Z}_p^n$ but the zero element. There are $q^n$ many choices for this. The second row can be any element except the $q$ multiples of the first row. In general, the $k+1^{\text{th}}$ row can be any element of $\mathbb{Z}_q^p$ except one of the $q^k$ linear combinations of the previous $k$ rows. So the total number of choices here is $\Pi_{k=0}^{n-1} (q^n - q^k) .$ 
+\end{proof}
+
+
+\begin{definition}[Borel Subgroup]
+	The set $B$ consisting of all invertible upper triangular matrices is a subgroup of $G = GL(n, \mathbb{F})$ is called the \emph{Standar Borel Subgroup.} A Borel Subgroup is any conjugate of the Standard Borel Subgorup.
+\end{definition}
+
+\begin{example}[Permutation matrix]
+	Any matrix having exactly one nonzero entry in each row and each column, equal to 1 is called a \emph{Permutation matrix.} For instance, let
+	$$ W = \begin{pmatrix}
+		 0  &  0 &  1 &  0  \\
+		 0  &  0 &  0 &  1  \\
+		 1  &  0 &  0 &  0  \\
+		 0  &  1 &  0 &  0 
+	\end{pmatrix} ,$$
+	and $ \{ v_1, v_2, v_3, v_4 \}$ be the standard ordered basis of $\mathbb{F}^4.$ Then $W v_1 = v_3, W v_2 = v_4, W v_3 = v_1$ and $W v_4 = v_2.$ Thus $W$ defines a permutation $\phi$ on $ \{1,2,3,4\}$ given by
+	$\phi(i) = j$ if and only if $W v_i = v_j.$
+\end{example}
+
+\begin{notation}
+	If $W$ sends $v_i$ to $v_j,$ then we write $w(i) = j.$
+\end{notation}
+
+\begin{proposition}[The Weyl Group]
+	the set $W$ consisting of all permutation matrices is a subgroup of $G$ called The Weyl Group.
+\end{proposition}
+\begin{proof}
+	The permutation matrices are closed under multiplication and the inverse of $W$ in The Weyl Group is $W^T.$
+\end{proof}
+
+\begin{proposition}[Weyl Group and Symmetric Group]
+	Let $V$ be an $n$\nobreakdash-vector space over $\mathbb{F}$ with standard basis $\{ v_1, v_2, \dotsc v_n \}.$ The action of $W,$ The Weyl Subgroup in $GL(n, \mathbb{F}),$ on $\{ v_1, v_2, \dotsc, v_n \}$ is equivalent to the action of $S_n$ on $\{1, 2, \dotsc, n \}$
+\end{proposition}
+
+We will now explore the \emph{Bruhat Decomposition} of $G$
+
+\begin{definition}[Transvection]
+	Let $1 \leq i,j\leq n$ be distinct and $\alpha$ in $\mathbb{F}.$%
+	Define $X_{ij}( \alpha)$ to be the matrix
+	$$ \begin{pmatrix}
+		1 &  0     &\cdots    &      &    &    &    \\
+		    &  1   &\cdots    &      &    &    &    \\
+		\vdots     &\cdots    &\vdots&     &\vdots &\vdots &\vdots \\
+		    &      &\cdots    &  1   &    &\alpha    &    \\
+		    &      &\cdots    &      &    &    &    
+	\end{pmatrix} .$$
+\end{definition}
+
+\begin{example}[Transvection]
+	A transvection $X_{23} (\alpha)$ in $M_3(\mathbb{F})$ is
+	$$ \begin{pmatrix}
+		1 &  0  &  0  \\
+		0 &  1  &\alpha\\
+		0 &  0  &  1  
+	\end{bmatrix}. $$
+	Consider the standard basis $ \{ v_1, v_2, v_3 \}.$
+\end{example}
+$X_{23}( \alpha) v_2 = \alpha v_3.$ $X_{23} (\alpha)$ leaves an $n-1$ dimensional vector subspace unchanged. In other words, for $X_{ij}(\alpha),$ $\left< v_1, v_2, \cdots, v_{i-1}, v_{i+1}, \cdots, v_n \right> $ is an invariant subspace of $X_{ij} ( \alpha).$
+
