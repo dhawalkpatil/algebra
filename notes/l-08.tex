@@ -1,7 +1,7 @@
 \noindent
 \emph{Lecture 08 \hfill 19 Sep 24, Thu}
 
-\begin{theorem}[Sylow Counting Theorem]
+\begin{theorem}[Sylow Counting Theorem]\label{thm:sylow-counting}
 Let $G$ be a finite group. Denote the size of the set of all Sylow~$p$\nobreakdash-groups
 in $G$ by $n_p(G).$ In other words, $n_p(G) =  \lvert Syl_p(G) \rvert.$ Then $ n_p(G) \equiv
 1 (\mod p^e) $ if $ p^e \leq \left[ S \, : \, S \cap T \right] $ for all distinct $ S,T
@@ -29,7 +29,7 @@ in $G$ by $n_p(G).$ In other words, $n_p(G) =  \lvert Syl_p(G) \rvert.$ Then $ n
 \end{theorem}
 
 \begin{proof}
-	By \cref{cor:number-of-sylow-p-groups}, we know that $n_p(G) \, | \, \left[ G
+	By \cref{cor:number-of-sylow-p-subgroups}, we know that $n_p(G) \, | \, \left[ G
 	\, : \, P\right] ,$ where $P \in Sylow_p(G).$ Moreover, $n_p(G)$ is either $1$
 	or $q.$ If $n_p(g) = 1,$ then by the \cref{cor:normal-sylow-p-subgroups}, we
 	know that this means $p$ is normal in $G.$ If $n_p(G) = q,$ then by Sylow Counting

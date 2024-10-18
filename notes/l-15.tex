@@ -1,0 +1,112 @@
+
+The action of $G = GL(n,\mathbb{F})$ on a complete flag $(V_0, v_1, \dotsc, V_n)$ is given by
+$$(V_1, \dotsc, V_n) \cdot g = (g V_1, \dotsc, g V_n).$$
+Every complete flag lies in the orbit of the standard flag. Let 
+$(W_1, \dotsc, W_n)$ be a complete flag on $G.$ 
+Let $\{ w_1   \dotsc, w_n\}$ be a basis of $\mathbb{F}^n$ such that
+$W_i $ is the span of $\{w_1   \dotsc,w_i \}.$ Then
+$g (V_1, \dotsc , V_n) (W_1, \dotsc, W_n),$
+where $g$ is the matrix whose $i^\text{th}$ column consists
+of the coordinates of $w_i$ in the basis $v_1  , \dotsc, v_n.$
+
+\subsubsection{Stabiliser of standard flag}
+Let $(V_1   \dotsc,V_n)$ be the standard flag on $\mathbb{F}^n.$ If
+$g$ in $G$ stabilises it, then for $V_i$ with $1 \leq i \leq n,$ we
+have
+$V_i \cdot g = V_i.$
+Let $v$ be in $V_i.$ Then all but the first $i$ coordinates of $v$ 
+are zero. Also, $g$ stabilises the $(V_1, \dotsc,V_n)$ so $v_i g$ is in
+$V_i.$ Hence, all but the first $i$ coordinates of $v_i$ are zero.
+Suppose $[a_{i,1}, \dotsc, a_{i,n}]$ is the $i\text{th}$ row of $g.$
+Then, $e_i \cdot g$ is in $V_i,$ hence $(a_{1,i}   \dotsc, a_{n,i})^\text{T}$ is in $V_i$ and so $a_{i+1,i}   \dotsc,a_{n,i}$ are all zero.
+This means $g$ is upper triangular.
+
+Suppose 
+$$A = \begin{pmatrix}
+	a_{11} & \ast &  \ast&  \ast\\
+	       & a_{22} & \ast& \ast \\
+	       && \ddots & \ast\\
+	       &&&a_{nn}\\
+\end{pmatrix}
+, \qquad B = \begin{pmatrix}
+	a_{11} &\ast& \ast &\ast  \\
+	   & a_{22} & \ast&\ast  \\
+	      && \ddots &\\
+	       &&&a_{nn}\\
+\end{pmatrix},
+$$
+then
+$$
+AB = \begin{pmatrix}
+	a_{11} b_{11} & \ast &\ast & \ast\\
+	      & a_{22} b_{22} &\ast& \ast \\
+	      &&\ddots & \ast\\
+	      &&& a_{nn} b_{nn}\\
+\end{pmatrix}.$$
+
+\begin{definition}[Upper unitriangular matrices]
+	Let $U$ be the set of all upper triangular matrices with $1$ on
+	the diagonal. Then $U$ is a subgroup of $B.$
+\end{definition}
+
+\begin{proposition}
+Let $T$ be the subset of all diagonal matrices in $G.$
+Then, $T \leq B,$ $U \cap T = \{I_n\},$ and $U \leq B.$
+	The standard Borel subgroup $B$ is a semidirect product
+	$ B = U \rtimes T.$
+\end{proposition}
+
+Let $\phi \colon B \to T$ be a group homomorphism defined by
+$$ \phi \begin{pmatrix}
+	a_{11} & \ast  & \ast & \ast \\
+	 & a_{22} & \ast  & \ast \\
+	  & & \ddots & \\
+	   & && a_{n} \\
+\end{pmatrix}
+= \begin{pmatrix}
+	a_{11} & 0 & 0 & 0 \\
+	       & a_{22} & 0 & 0 \\
+	       && \ddots &\\
+	       &&& a_{nn}\\
+\end{pmatrix}
+.$$
+The kernel of $ \phi$ is $U.$
+For any $b$ in $B,$ $b \phi(b)^{-1}$ is in $\ker(\phi).$
+So, $b$ is in $U \phi(b) \subseteq UT.$
+This means $B \subseteq UT \subseteq B.$
+Note that $T$ is not normal in $B$ when $n \geq 1.$
+
+An element $u$ of $U,$ maps $v_i$ to $u_{1,i} v_1 + u_{2,i} v_2 + \cdots
+u_{i-1,i-1} v_{i-1} + v_i$ because $u_{i,i} = 1.$ So, $g$ induces the identity transformation
+on the quotient $V_i /V_{i-1}.$
+Conversely, if $g$ in $G$ induces the identity transformation on $V_i/
+V_{i-1},$ then $v \cdot g$ is contained in $v + V_{i-1}$ implying
+that $g_{i,i} = 1$ and $g_{i,i+1} = g_{i,i+2} = \cdots = g_{i,n} = 0.$
+So, $U$ consists of matrices which stabilise each element of $V_i$
+and induce the identity transformation on each quotient $V_i /V_{i-1}.$
+$T$ consists of all matrices which stabilise each of $ \mathbb{F} v_1,$
+$\mathbb{F} v_2 , \dotsc, \mathbb{F} v_n.$
+
+\begin{definition}[Unipotent matrices]
+	An element $g$ in $G$ is said to be unipotent if its 
+	characteristic polynomial is $(x-1)^n,$ that is, if its Jordan
+	normal form is in $U.$
+	A subgroup $H$ of $G$ is a unipotent subgroup if every element
+	in it is unipotent.
+\end{definition}
+
+\begin{theorem}[Kolchen]
+	Any unipotent subgroup of $G$ is conjugate to a subgroup of $U.$
+\end{theorem}
+
+Let $B, B'$ be Borel subgroups of $G$ and call the set of all unipotent
+matrices in $B,$ respectively $B',$ $U,$ respectively $U'.$
+As $B$ and $B'$ are conjugate to each other, so are $U$ and $U'.$
+
+\begin{proof}[Partial proof]
+	Let $H$ be a unipotent subgroup of $G.$
+	Suppose $H$ stabilises some complete flag $(V_1, \dotsc, V_n)$
+on $V_n(\mathbb{F}).$ Then the maximal subgroup of $G$ stabilising the
+flag $(V_1, \dotsc, V_n)$ is some $H$ is some Borel subgroup $B.$ This means $H$ is a subgroup of $B.$
+So, $H$ is conjugate to a unipotent subgroup of $B.$
+\end{proof}

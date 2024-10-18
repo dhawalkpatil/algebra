@@ -1,0 +1,113 @@
+
+\noindent
+\emph{Lecture - 16\hfill 17 Oct 24, Thu}
+
+\section{Parabolic Subgroup}
+We talked about the group $GL(n, \mathbb{F})$ and found a decomposition of 
+$G$ in the form $BWB$ and expressed $B$ as $U \rtimes T,$ where $B$ is some
+Borel subgroup.
+
+\begin{definition}
+	A flag on $V_n(\mathbb{F})$ is a sequence $(W_1, W_2, \dotsc, W_r)$ of 
+	subspaces of $V_n(\mathbb{F})$ such that $\{0\} \leq W_1 \leq W_2 \leq
+	\cdots \leq W_r$ where $r$ is some positive integer less than or equal to
+	$n$ and the containment is proper.
+\end{definition}
+Let $G$ act on the set of all flags on $V_n(\mathbb{F}).$
+Given two flags $(W_1, \dotsc, W_r)$ and $(U_1, \dotsc, U_s)$ are in the same orbit
+if and only if $r = s$ and $\dim(W_1) = \dim(U_1),$ $\dim(W_2) = \dim(U_2),
+\dotsc, \dim(W_r) = \dim(U_r).$
+\begin{definition}[Parabolic subgroup]
+	A parabolic subgroup of $G = GL(n, \mathbb{F})$ stabilising some flag on 
+	it.
+\end{definition}
+We have encountered the decomposition $B = U \rtimes T$ for the Borel subgroup
+$B$ which stabilises some complete flag on $V_n(\mathbb{F}).$
+\begin{definition}[Unipotent radical and Levi Complement]
+	Let $(W_1, W_2, \dotsc, W_r)$ be a flag, $P$ be the associated Parabolic
+	subgroup. We can define subspaces $Y_i$ for $i=2,\dotsc, r$ such that
+	$W_i = W_{i-1} \oplus Y_i$ for each $i$ in $\{ 2, \dotsc, r\}.$ The 
+	unipotent radical of $P$ is the group $U_P$ of $P$ consisting of matrices
+	that induce the identity transformation on $W_i/W_{i-1}$ for each $i$
+	in $\{2, \dotsc, r\}.$
+\end{definition}
+With this nomenclature, $Y_1 = \{0\}.$
+Let $\{v_1, v_2, \dotsc, v_n\}$ be a basis of $V_n(\mathbb{F})$ such that
+$V_1$ is the span of $v_1, v_2, \dotsc, v_{\dim(V_1)},$ and in general,
+$V_i$ is the span of $v_1, $ $v_2, \dotsc, v_{\dim(v_r)}.$
+Let $g$ in $G$ stabilise $V_i$ and $A$
+be the matrix which represents it in this basis. Then, $A e_i$ is exactly the
+coordinate vector of $g v_i$ in this basis. If $i \leq \dim(V_k),$ then $g v_i$
+is in $V_k$ and so all entries of $A e_i$ except the first $\dim(V_k)$ are zero.
+Observe that $A e_i$ is simply the $i^\text{th}$ column of $A.$ This elucidates
+the structure of $A.$
+\begin{example}[Staircase subgroup]
+	The staircase group stabilising the subflag $0 \subseteq V_2 \subseteq
+	V_3 \subseteq V_6$ consists of all matrices in $GL(6, \mathbb{F})$ of the
+	form
+	$$ \begin{bmatrix}
+		  \ast  &  \ast  &  \ast  &  \ast  &  \ast  &  \ast  \\
+		  \ast  &  \ast  &  \ast  &  \ast  &  \ast  &  \ast  \\
+		    0   &   0    &  \ast  &  \ast  &  \ast  &  \ast  \\
+		    0   &   0    &    0   &  \ast  &  \ast  &  \ast  \\
+		    0   &   0    &    0   &  \ast  &  \ast  &  \ast  \\
+		    0   &   0    &    0   &  \ast  &  \ast  &  \ast  \\
+\end{bmatrix} .$$
+The unipotent radical of this flag consists of all matrices in $GL(6, \mathbb{F})$
+of the form
+$$\begin{bmatrix}
+	   1   &   0   & \ast  & \ast  & \ast  & \ast  \\
+	   0   &   1   & \ast  & \ast  & \ast  & \ast  \\
+	   0   &   0   &   1   & \ast  & \ast  & \ast  \\
+	   0   &   0   &   0   & \ast  & \ast  & \ast  \\
+	   0   &   0   &   0   &   1   &   0   &   0   \\
+	   0   &   0   &   0   &   0   &   1   &   0   \\
+	   0   &   0   &   0   &   0   &   0   &   1   \\
+   \end{bmatrix}.$$
+The Levi complement of this group is the set of all matrices in $GL(6, \mathbb{F})$
+of the form
+	$$ \begin{bmatrix}
+		  \ast  &  \ast  &    0   &   0    &    0   &   0    \\
+		  \ast  &  \ast  &    0   &   0    &    0   &   0    \\
+		    0   &   0    &  \ast  &   0    &    0   &   0    \\
+		    0   &   0    &    0   &  \ast  &  \ast  &  \ast  \\
+		    0   &   0    &    0   &  \ast  &  \ast  &  \ast  \\
+		    0   &   0    &    0   &  \ast  &  \ast  &  \ast  \\
+\end{bmatrix} .$$
+\end{example}
+
+\begin{lemma}
+	The only nonzero subspaces of $V_n(\mathbb{F})$ which are invariant under
+	$B$ are the subspaces $V_1, $ $V_2, \dotsc, V_n$ which are in the standard
+	flag.
+\end{lemma}
+\begin{proof}
+	We already know that $B$ fixes $V_i$ for each $i$ in $1, \dotsc, n.$
+	Let $V$ be a subspace of $V_n(\mathbb{F})$ fixed by $B.$ Then there exists
+	some $i$ in $1, \dotsc, n$ such that $V \subseteq V_i.$ Pick $k$ such that
+	$V \subseteq V_k$ but $V \not \subseteq V_{k-1}.$ Then there exists an
+	element $v = \sum_{j=1}^{k} \alpha_j v_j$ with $\alpha_k \not = 0.$ So,
+	$g v_k = v,$ where
+	$$ \begin{bmatrix}
+	   1   &   0   & \cdots  & \alpha_1 &   0   &  \cdots &   0   \\
+	   0   &   1   & \cdots  & \alpha_2 &   0   &  \cdots &   0   \\
+	   0   &   0   & \ddots  &  \vdots  &   0   &  \cdots &   0   \\
+	   0   &   0   & \cdots  & \alpha_k &   0   &  \cdots &   0   \\
+	   0   &   0   &    0    &    0     &   1   &  \cdots &   0   \\
+	   0   &   0   &    0    &    0     & \ddots&     0   &   0   \\
+	   0   &   0   &    0    &    0     &   0   &  \cdots &   1   \\
+\end{bmatrix} . $$
+So, $v_k = g^{-1} v$ so that $v_k$ is in $V_k.$ This means, for any vector 
+$x = \sum_{j=1}^{k} \alpha_j v_j$ with $\alpha_k \not = 0,$ 
+$$ x = \begin{bmatrix}
+	   1   &   0   & \cdots & \alpha_1 &   0   &  \cdots &   0   \\
+	   0   &   1   & \cdots & \alpha_2 &   0   &  \cdots &   0   \\
+	   0   &   0   & \ddots &  \vdots  &   0   &  \cdots &   0   \\
+	   0   &   0   & \cdots & \alpha_k &   0   &  \cdots &   0   \\
+	   0   &   0   &   0    &     0    &  \ddots &   0   &   0   \\
+	   0   &   0   &   0    &     0    &   0   &  \cdots &   1   \\
+   \end{bmatrix} v_k $$
+ is in $V.$ So, $V_k \setminus V_{k-1} \subseteq V.$ So, for any $x$ in $V_{k-1},$
+ $v$ and $x+v$ are in $$V_k \setminus V_{k-1} \subseteq V$ implying that
+ $x$ is in $V.$
+\end{proof}
